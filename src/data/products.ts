@@ -6,16 +6,17 @@ import rotaryHammerImage from '../assets/images/regenerated_image_1787664345426.
 import batteryPackImage from '../assets/images/regenerated_image_1787664341062.png';
 import laserLevelImage from '../assets/images/regenerated_image_1787664329242.png';
 import stringTrimmerImage from '../assets/images/regenerated_image_1787664339964.jpg';
-import bitSetImage from '../assets/images/regenerated_image_1787675431473.png';
-import comboKitImage from '../assets/images/regenerated_image_1787675436368.png';
+import impactDriverImage from '../assets/images/regenerated_image_1787677075749.jpg';
 import impactWrenchImage from '../assets/images/regenerated_image_1787673246220.jpg';
 import miterSawImage from '../assets/images/regenerated_image_1787673247163.webp';
 import recipSawImage from '../assets/images/regenerated_image_1787675413170.jpg';
 import chainsawImage from '../assets/images/regenerated_image_1787675416802.jpg';
-import multiToolImage from '../assets/images/regenerated_image_1787675419928.jpg';
+import multiToolImage from '../assets/images/regenerated_image_1787677081417.jpg';
 import rollingBoxImage from '../assets/images/regenerated_image_1787675423090.jpg';
-import chargerImage from '../assets/images/regenerated_image_1787675425702.jpg';
-import tapeMeasureImage from '../assets/images/regenerated_image_1787675428259.jpg';
+import chargerImage from '../assets/images/regenerated_image_1787677787234.png';
+import bitSetImage from '../assets/images/regenerated_image_1787677791874.jpg';
+import tapeMeasureImage from '../assets/images/regenerated_image_1787678176718.png';
+import comboKitImage from '../assets/images/regenerated_image_1787678189196.jpg';
 
 export const PRODUCTS: Product[] = [
   {
@@ -119,9 +120,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: true,
     shortDescription: 'Delivers up to 1,825 in-lbs of torque with 3-speed settings including Precision Drive for fastener control.',
     description: 'The DCF887B 20V MAX* XR® 1/4 in. 3-Speed Impact Driver is compact for fitting in tight spaces and increasing productivity. Three LED lights make it ideal for working in dark spaces. Precision Drive in speed 1 provides added control for precision applications.',
-    primaryImage: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80',
+    primaryImage: impactDriverImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80',
+      impactDriverImage,
       'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -777,7 +778,7 @@ export const PRODUCTS: Product[] = [
     primaryImage: tapeMeasureImage,
     galleryImages: [
       tapeMeasureImage,
-      'https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
       'Survives 100 ft. drop onto packed soil',

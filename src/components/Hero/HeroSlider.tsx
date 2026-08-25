@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Zap, ArrowRight } from 'lucide-react';
 import { useShop } from '../../context/ShopContext';
+import hammerDrillImage from '../../assets/images/regenerated_image_1787662218697.png';
+import circularSawImage from '../../assets/images/regenerated_image_1787664354762.png';
+import angleGrinderImage from '../../assets/images/regenerated_image_1787664350071.png';
+import rotaryHammerImage from '../../assets/images/regenerated_image_1787664345426.png';
 
 interface Slide {
   id: string;
@@ -16,42 +20,42 @@ interface Slide {
 const SLIDES: Slide[] = [
   {
     id: 'slide-1',
-    badge: 'MA CONSIDER BRAND 20V MAX* XR',
-    headline: 'MAXIMUM POWER & RUNTIME',
-    subheadline: 'High-efficiency brushless tools engineered for heavy jobsite demands.',
+    badge: 'BEST SELLER • 20V MAX* XR®',
+    headline: 'BRUSHLESS 3-SPEED HAMMER DRILL',
+    subheadline: 'High-efficiency brushless tools engineered for heavy jobsite demands and masonry.',
     primaryCtaText: 'SHOP TOOLS',
     secondaryCtaText: 'VIEW ALL',
-    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1920&q=85',
+    image: hammerDrillImage,
     categoryTarget: 'power-tools'
   },
   {
     id: 'slide-2',
-    badge: 'MA CONSIDER BRAND FLEXVOLT®',
-    headline: 'CORDED POWER. ZERO CORDS.',
-    subheadline: 'Heavy-duty cutting, grinding, and demolition with cordless freedom.',
+    badge: 'BEST SELLER • FLEXVOLT® 60V MAX*',
+    headline: 'WORM DRIVE STYLE CIRCULAR SAW',
+    subheadline: 'Heavy-duty cordless cutting performance delivering corded-power precision.',
     primaryCtaText: 'SHOP FLEXVOLT',
-    secondaryCtaText: 'BATTERIES',
-    image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1920&q=85',
-    categoryTarget: 'batteries-chargers'
+    secondaryCtaText: 'EXPLORE',
+    image: circularSawImage,
+    categoryTarget: 'power-tools'
   },
   {
     id: 'slide-3',
-    badge: 'MA CONSIDER BRAND COMBO KITS',
-    headline: 'COMPLETE TOOLSETS & STORAGE',
-    subheadline: 'Multi-tool bundles with high-output batteries and rugged storage.',
-    primaryCtaText: 'SHOP KITS',
-    secondaryCtaText: 'EXPLORE',
-    image: 'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=1920&q=85',
-    categoryTarget: 'combo-kits'
+    badge: 'BEST SELLER • FLEXVOLT® 60V MAX*',
+    headline: 'CORDLESS ANGLE GRINDER',
+    subheadline: 'Kickback Brake™ technology with 9,000 RPM for heavy-duty metal and concrete cutting.',
+    primaryCtaText: 'SHOP GRINDERS',
+    secondaryCtaText: 'VIEW ALL',
+    image: angleGrinderImage,
+    categoryTarget: 'power-tools'
   },
   {
     id: 'slide-4',
-    badge: 'MA CONSIDER BRAND ATOMIC™',
-    headline: 'COMPACT SIZE. EXTREME SPEED.',
-    subheadline: 'Engineered for tight spaces without sacrificing torque or durability.',
-    primaryCtaText: 'DISCOVER ATOMIC',
+    badge: 'BEST SELLER • 20V MAX* XR® SDS PLUS',
+    headline: 'BRUSHLESS ROTARY HAMMER DRILL',
+    subheadline: '2.1 Joules of impact energy delivering ultra-fast drilling in reinforced concrete.',
+    primaryCtaText: 'SHOP ROTARY HAMMERS',
     secondaryCtaText: 'SHOP NOW',
-    image: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=1920&q=85',
+    image: rotaryHammerImage,
     categoryTarget: 'power-tools'
   }
 ];
@@ -94,14 +98,22 @@ export const HeroSlider: React.FC = () => {
             index === currentSlide ? 'opacity-100 scale-100 z-0' : 'opacity-0 scale-105 pointer-events-none -z-10'
           }`}
         >
-          <img
-            src={s.image}
-            alt={s.headline}
-            className="w-full h-full object-cover object-center brightness-90 contrast-105"
-          />
-          {/* Gradients to keep text clear while highlighting tool images */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-black/40" />
+          {/* Subtle industrial background & radial ambient glow */}
+          <div className="absolute inset-0 bg-[#141414]" />
+          <div className="absolute top-1/2 right-12 lg:right-28 -translate-y-1/2 w-80 lg:w-[480px] h-80 lg:h-[480px] bg-[#F7C600]/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* High-Impact Product Showcase Image */}
+          <div className="absolute inset-y-0 right-0 w-full sm:w-2/3 lg:w-1/2 flex items-center justify-center lg:justify-end pr-4 sm:pr-8 lg:pr-16 pointer-events-none">
+            <img
+              src={s.image}
+              alt={s.headline}
+              className="max-h-[300px] sm:max-h-[380px] lg:max-h-[440px] w-auto max-w-[90%] object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)] transition-all duration-700"
+            />
+          </div>
+
+          {/* Gradients to ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#141414] via-[#141414]/80 sm:via-[#141414]/50 to-transparent sm:w-3/4 lg:w-2/3 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-black/30 pointer-events-none" />
         </div>
       ))}
 
