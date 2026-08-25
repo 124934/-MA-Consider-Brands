@@ -1,0 +1,6 @@
+{
+  "name": "MA Brand - Premium Tool & Equipment Retailer",
+  "description": "High-end, professional USA e-commerce platform for MA Brand power tools, hand tools, batteries, chargers, and jobsite equipment.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
