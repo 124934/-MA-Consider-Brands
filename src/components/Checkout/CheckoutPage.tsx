@@ -60,10 +60,22 @@ export const CheckoutPage: React.FC = () => {
   const handlePlaceOrder = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (paymentMethod === 'whatsapp') {
-      sendWhatsAppOrder();
-      return;
-    }
+    const fullName = `${firstName.trim()} ${lastName.trim()}`.trim() || 'Valued Customer';
+    const customerPhone = phone.trim() || 'Not provided';
+    const fullAddress = [
+      address1.trim(),
+      address2.trim(),
+      city.trim(),
+      state.trim(),
+      zip.trim()
+    ].filter(Boolean).join(', ') || 'Not provided';
+
+    // Send full order details to WhatsApp
+    sendWhatsAppOrder({
+      customerName: fullName,
+      customerPhone: customerPhone,
+      deliveryAddress: fullAddress
+    });
 
     const generatedId = 'MAC-' + Math.floor(100000 + Math.random() * 900000);
     setOrderId(generatedId);
@@ -106,6 +118,15 @@ export const CheckoutPage: React.FC = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://wa.me/923155959375"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-condensed font-black text-base uppercase tracking-wider rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-2"
+            >
+              <MessageSquare className="w-5 h-5" />
+              <span>Direct WhatsApp Chat</span>
+            </a>
             <button
               onClick={() => setActivePage('home')}
               className="px-8 py-3.5 bg-[#F7C600] hover:bg-[#deb200] text-black font-condensed font-black text-base uppercase tracking-wider rounded-xl transition-colors cursor-pointer"

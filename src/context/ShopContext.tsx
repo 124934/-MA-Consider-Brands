@@ -58,7 +58,11 @@ interface ShopContextType {
   showToast: (message: string) => void;
 
   // WhatsApp Helpers
-  sendWhatsAppOrder: (customNotes?: string, customerName?: string) => void;
+  sendWhatsAppOrder: (details?: {
+    customerName?: string;
+    customerPhone?: string;
+    deliveryAddress?: string;
+  }) => void;
   sendWhatsAppProductInquiry: (product: Product, customQuestion?: string) => void;
 }
 
@@ -278,42 +282,47 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     .filter((p): p is Product => Boolean(p));
 
   // Direct WhatsApp dispatch helper
-  const sendWhatsAppOrder = (customNotes?: string, customerName?: string) => {
+  const sendWhatsAppOrder = (details?: {
+    customerName?: string;
+    customerPhone?: string;
+    deliveryAddress?: string;
+  }) => {
     if (cart.length === 0) {
       showToast('Your cart is empty');
       return;
     }
 
-    let message = `*MA CONSIDER BRANDS - TOOL ORDER INQUIRY*\n`;
-    message += `--------------------------------------\n`;
-    if (customerName) {
-      message += `Customer: ${customerName}\n`;
-    }
-    message += `Order Date: ${new Date().toLocaleDateString('en-US')}\n\n`;
-    message += `*REQUESTED TOOLS:*\n`;
+    const name = details?.customerName?.trim() || 'Valued Customer';
+    const phoneNum = details?.customerPhone?.trim() || 'Not provided';
+    const address = details?.deliveryAddress?.trim() || 'Not provided';
 
-    cart.forEach((item, index) => {
-      message += `${index + 1}. [${item.product.sku}] ${item.product.name}\n   Qty: ${item.quantity} x $${item.product.price.toFixed(2)} = $${(item.quantity * item.product.price).toFixed(2)}\n`;
-    });
+    const orderDetailsList = cart
+      .map((item, index) => {
+        const itemTotalPrice = `$${(item.product.price * item.quantity).toFixed(2)}`;
+        return `${index + 1}. ${item.product.name} × ${item.quantity} = ${itemTotalPrice}`;
+      })
+      .join('\n');
 
-    message += `\n--------------------------------------\n`;
-    message += `Subtotal: $${subtotal.toFixed(2)}\n`;
-    if (discountAmount > 0) {
-      message += `Discount (${appliedCoupon}): -$${discountAmount.toFixed(2)}\n`;
-    }
-    message += `Estimated Shipping: ${shippingCost === 0 ? 'FREE' : '$' + shippingCost.toFixed(2)}\n`;
-    message += `*Estimated Total: $${total.toFixed(2)} USD*\n`;
-    message += `--------------------------------------\n`;
-
-    if (customNotes) {
-      message += `Notes: ${customNotes}\n\n`;
-    }
-
-    message += `Please confirm product availability, shipping lead time, and payment invoice instructions. Thank you!`;
+    let message = `NEW ORDER\n\n`;
+    message += `Customer Name: ${name}\n`;
+    message += `Phone Number: ${phoneNum}\n`;
+    message += `Delivery Address: ${address}\n\n`;
+    message += `ORDER DETAILS:\n\n`;
+    message += `${orderDetailsList}\n\n`;
+    message += `TOTAL ORDER AMOUNT: $${total.toFixed(2)}\n\n`;
+    message += `Please confirm this order. Thank you!`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+    try {
+      const win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        window.location.href = whatsappUrl;
+      }
+    } catch {
+      window.location.href = whatsappUrl;
+    }
   };
 
   const sendWhatsAppProductInquiry = (product: Product, customQuestion?: string) => {
