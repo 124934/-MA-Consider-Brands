@@ -63,6 +63,15 @@ interface ShopContextType {
     customerPhone?: string;
     deliveryAddress?: string;
   }) => void;
+  orderProductOnWhatsApp: (
+    product: Product,
+    quantity?: number,
+    details?: { customerName?: string; customerPhone?: string; deliveryAddress?: string }
+  ) => void;
+  orderMultipleOnWhatsApp: (
+    items: { product: Product; quantity: number }[],
+    details?: { customerName?: string; customerPhone?: string; deliveryAddress?: string }
+  ) => void;
   sendWhatsAppProductInquiry: (product: Product, customQuestion?: string) => void;
 }
 
@@ -325,6 +334,83 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  const orderProductOnWhatsApp = (
+    product: Product,
+    quantity = 1,
+    details?: { customerName?: string; customerPhone?: string; deliveryAddress?: string }
+  ) => {
+    const qty = Math.max(1, quantity);
+    const name = details?.customerName?.trim() || 'Valued Customer';
+    const phoneNum = details?.customerPhone?.trim() || 'Not provided';
+    const address = details?.deliveryAddress?.trim() || 'Not provided';
+    const itemTotal = (product.price * qty).toFixed(2);
+
+    let message = `NEW ORDER\n\n`;
+    message += `Customer Name: ${name}\n`;
+    message += `Phone Number: ${phoneNum}\n`;
+    message += `Delivery Address: ${address}\n\n`;
+    message += `ORDER DETAILS:\n\n`;
+    message += `1. ${product.name} × ${qty} = $${itemTotal}\n\n`;
+    message += `TOTAL ORDER AMOUNT: $${itemTotal}\n\n`;
+    message += `Please confirm this order. Thank you!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`;
+
+    try {
+      const win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        window.location.href = whatsappUrl;
+      }
+    } catch {
+      window.location.href = whatsappUrl;
+    }
+  };
+
+  const orderMultipleOnWhatsApp = (
+    items: { product: Product; quantity: number }[],
+    details?: { customerName?: string; customerPhone?: string; deliveryAddress?: string }
+  ) => {
+    if (!items || items.length === 0) {
+      showToast('No items selected');
+      return;
+    }
+
+    const name = details?.customerName?.trim() || 'Valued Customer';
+    const phoneNum = details?.customerPhone?.trim() || 'Not provided';
+    const address = details?.deliveryAddress?.trim() || 'Not provided';
+
+    let totalAmount = 0;
+    const orderDetailsList = items
+      .map((item, index) => {
+        const itemTotal = item.product.price * item.quantity;
+        totalAmount += itemTotal;
+        return `${index + 1}. ${item.product.name} × ${item.quantity} = $${itemTotal.toFixed(2)}`;
+      })
+      .join('\n');
+
+    let message = `NEW ORDER\n\n`;
+    message += `Customer Name: ${name}\n`;
+    message += `Phone Number: ${phoneNum}\n`;
+    message += `Delivery Address: ${address}\n\n`;
+    message += `ORDER DETAILS:\n\n`;
+    message += `${orderDetailsList}\n\n`;
+    message += `TOTAL ORDER AMOUNT: $${totalAmount.toFixed(2)}\n\n`;
+    message += `Please confirm this order. Thank you!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`;
+
+    try {
+      const win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        window.location.href = whatsappUrl;
+      }
+    } catch {
+      window.location.href = whatsappUrl;
+    }
+  };
+
   const sendWhatsAppProductInquiry = (product: Product, customQuestion?: string) => {
     let message = `*MA CONSIDER BRANDS - PRODUCT INQUIRY*\n`;
     message += `Tool: ${product.name}\n`;
@@ -391,6 +477,8 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
         toastMessage,
         showToast,
         sendWhatsAppOrder,
+        orderProductOnWhatsApp,
+        orderMultipleOnWhatsApp,
         sendWhatsAppProductInquiry
       }}
     >

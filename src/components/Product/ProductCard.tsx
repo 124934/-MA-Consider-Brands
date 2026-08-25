@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Heart, ShoppingCart, Scale, Check, MessageSquare } from 'lucide-react';
+import { Star, Heart, Scale, Check, MessageSquare } from 'lucide-react';
 import { Product } from '../../types';
 import { useShop } from '../../context/ShopContext';
 
@@ -12,12 +12,11 @@ const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1508873696983-2df5293c
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const {
     navigateToProduct,
-    addToCart,
+    orderProductOnWhatsApp,
     toggleWishlist,
     isInWishlist,
     toggleCompare,
-    compareList,
-    sendWhatsAppProductInquiry
+    compareList
   } = useShop();
 
   const [imgSrc, setImgSrc] = useState<string>(product.primaryImage || FALLBACK_IMAGE);
@@ -177,23 +176,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             )}
           </div>
 
-          {/* Action Buttons */}
-          <div className="grid grid-cols-5 gap-2">
+          {/* Action Button: Direct WhatsApp Order */}
+          <div>
             <button
-              onClick={() => addToCart(product, 1)}
-              className="col-span-4 py-2.5 bg-[#F7C600] hover:bg-[#DEB200] text-black font-condensed font-extrabold text-sm uppercase tracking-wider rounded-lg transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-95 shadow cursor-pointer"
-            >
-              <ShoppingCart className="w-4 h-4" />
-              <span>Add to Cart</span>
-            </button>
-
-            <button
-              onClick={() => sendWhatsAppProductInquiry(product)}
-              className="col-span-1 py-2.5 bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 rounded-lg transition-colors flex items-center justify-center cursor-pointer"
-              title="Inquire on WhatsApp (+92 315 5959375)"
-              aria-label="WhatsApp Inquiry"
+              onClick={() => orderProductOnWhatsApp(product, 1)}
+              className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-condensed font-extrabold text-sm uppercase tracking-wider rounded-lg transition-all duration-200 flex items-center justify-center gap-2 active:scale-95 shadow cursor-pointer"
             >
               <MessageSquare className="w-4 h-4" />
+              <span>ORDER ON WHATSAPP</span>
             </button>
           </div>
         </div>

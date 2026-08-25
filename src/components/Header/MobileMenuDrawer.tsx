@@ -15,9 +15,7 @@ export const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ isOpen, onCl
     navigateToCategory,
     setActivePage,
     setIsSearchOpen,
-    setIsCartOpen,
-    wishlist,
-    cartCount
+    wishlist
   } = useShop();
 
   const [expandedSection, setExpandedSection] = useState<string | null>('categories');

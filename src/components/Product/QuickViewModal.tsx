@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { X, Star, Check, ShoppingCart, Heart, Scale, ArrowRight, ShieldCheck, Truck, MessageSquare } from 'lucide-react';
+import { X, Star, Check, Heart, Scale, ArrowRight, ShieldCheck, Truck, MessageSquare } from 'lucide-react';
 import { useShop } from '../../context/ShopContext';
 
 export const QuickViewModal: React.FC = () => {
   const {
     quickViewProduct,
     closeQuickView,
-    addToCart,
+    orderProductOnWhatsApp,
     toggleWishlist,
     isInWishlist,
     toggleCompare,
@@ -24,8 +24,8 @@ export const QuickViewModal: React.FC = () => {
   const isCompared = compareList.includes(quickViewProduct.id);
   const images = quickViewProduct.galleryImages.length > 0 ? quickViewProduct.galleryImages : [quickViewProduct.primaryImage];
 
-  const handleAddToCart = () => {
-    addToCart(quickViewProduct, quantity);
+  const handleOrderOnWhatsApp = () => {
+    orderProductOnWhatsApp(quickViewProduct, quantity);
     closeQuickView();
   };
 
@@ -176,13 +176,13 @@ export const QuickViewModal: React.FC = () => {
                   </button>
                 </div>
 
-                {/* Add to Cart */}
+                {/* Order on WhatsApp */}
                 <button
-                  onClick={handleAddToCart}
-                  className="flex-1 py-3 bg-[#F7C600] hover:bg-[#DEB200] text-black font-condensed font-black text-base uppercase tracking-wider rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  onClick={handleOrderOnWhatsApp}
+                  className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-condensed font-black text-base uppercase tracking-wider rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow"
                 >
-                  <ShoppingCart className="w-4 h-4" />
-                  <span>Add to Cart</span>
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Order on WhatsApp</span>
                 </button>
 
                 {/* Wishlist */}

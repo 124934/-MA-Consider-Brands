@@ -1,18 +1,19 @@
 import React from 'react';
-import { Heart, ShoppingCart, Trash2, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Heart, Trash2, ArrowLeft, ArrowRight, MessageSquare } from 'lucide-react';
 import { useShop } from '../../context/ShopContext';
 import { PRODUCTS } from '../../data/products';
 import { ProductCard } from '../Product/ProductCard';
 
 export const WishlistPage: React.FC = () => {
-  const { wishlist, clearWishlist, setActivePage, addToCart } = useShop();
+  const { wishlist, clearWishlist, setActivePage, orderMultipleOnWhatsApp } = useShop();
 
   const savedProducts = wishlist
     .map((id) => PRODUCTS.find((p) => p.id === id))
     .filter((p): p is typeof PRODUCTS[0] => Boolean(p));
 
-  const handleAddAllToCart = () => {
-    savedProducts.forEach((p) => addToCart(p, 1));
+  const handleOrderAllOnWhatsApp = () => {
+    const items = savedProducts.map((p) => ({ product: p, quantity: 1 }));
+    orderMultipleOnWhatsApp(items);
   };
 
   return (
@@ -42,10 +43,11 @@ export const WishlistPage: React.FC = () => {
                 Clear All
               </button>
               <button
-                onClick={handleAddAllToCart}
-                className="px-5 py-2 bg-[#F7C600] hover:bg-[#deb200] text-black rounded-lg text-xs font-black uppercase tracking-wider transition-colors shadow"
+                onClick={handleOrderAllOnWhatsApp}
+                className="px-5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black uppercase tracking-wider transition-colors shadow flex items-center gap-1.5"
               >
-                Add All to Cart
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>Order All on WhatsApp</span>
               </button>
             </div>
           )}

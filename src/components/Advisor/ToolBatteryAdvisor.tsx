@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { HelpCircle, Check, ArrowRight, BatteryCharging, Wrench, Shield, Sparkles } from 'lucide-react';
+import { HelpCircle, Check, ArrowRight, BatteryCharging, Wrench, Shield, Sparkles, MessageSquare } from 'lucide-react';
 import { PRODUCTS } from '../../data/products';
 import { useShop } from '../../context/ShopContext';
 import { Product } from '../../types';
 
 export const ToolBatteryAdvisor: React.FC = () => {
-  const { navigateToProduct, addToCart } = useShop();
+  const { navigateToProduct, orderProductOnWhatsApp } = useShop();
 
   const [step, setStep] = useState<number>(1);
   const [selectedTask, setSelectedTask] = useState<string>('framing');
@@ -143,10 +143,11 @@ export const ToolBatteryAdvisor: React.FC = () => {
               View Details
             </button>
             <button
-              onClick={() => addToCart(recommendedProduct, 1)}
-              className="flex-1 sm:flex-initial px-6 py-2.5 bg-[#F7C600] hover:bg-[#deb200] text-black text-xs font-extrabold uppercase tracking-wider rounded-lg transition-all duration-200 shadow-md cursor-pointer text-center"
+              onClick={() => orderProductOnWhatsApp(recommendedProduct, 1)}
+              className="flex-1 sm:flex-initial px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold uppercase tracking-wider rounded-lg transition-all duration-200 shadow-md cursor-pointer text-center flex items-center justify-center gap-1.5"
             >
-              Add to Cart
+              <MessageSquare className="w-4 h-4" />
+              <span>Order on WhatsApp</span>
             </button>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Scale, Trash2, ShoppingCart, Check, Star } from 'lucide-react';
+import { X, Scale, Trash2, Check, Star, MessageSquare } from 'lucide-react';
 import { useShop } from '../../context/ShopContext';
 import { PRODUCTS } from '../../data/products';
 
@@ -10,7 +10,7 @@ export const CompareModal: React.FC = () => {
     compareList,
     removeFromCompare,
     clearCompare,
-    addToCart,
+    orderProductOnWhatsApp,
     navigateToProduct
   } = useShop();
 
@@ -149,15 +149,15 @@ export const CompareModal: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Add to Cart button */}
+                  {/* Order on WhatsApp button */}
                   <button
                     onClick={() => {
-                      addToCart(product, 1);
+                      orderProductOnWhatsApp(product, 1);
                     }}
-                    className="w-full py-2.5 bg-[#F7C600] hover:bg-[#DEB200] text-black font-condensed font-bold text-sm uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow"
+                    className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-condensed font-bold text-sm uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow"
                   >
-                    <ShoppingCart className="w-4 h-4" />
-                    <span>Add to Cart</span>
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Order on WhatsApp</span>
                   </button>
                 </div>
               ))}

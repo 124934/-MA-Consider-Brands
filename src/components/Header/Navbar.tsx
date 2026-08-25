@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
   Search,
-  ShoppingCart,
   Heart,
   Menu,
   ChevronDown,
@@ -10,7 +9,8 @@ import {
   Wrench,
   Zap,
   PhoneCall,
-  Scale
+  Scale,
+  MessageSquare
 } from 'lucide-react';
 import { useShop } from '../../context/ShopContext';
 import { BrandLogo } from '../Brand/BrandLogo';
@@ -24,9 +24,6 @@ export const Navbar: React.FC = () => {
     activePage,
     setActivePage,
     navigateToCategory,
-    cartCount,
-    subtotal,
-    setIsCartOpen,
     setIsSearchOpen,
     wishlist,
     compareList,
@@ -199,24 +196,19 @@ export const Navbar: React.FC = () => {
               )}
             </button>
 
-            {/* Shopping Cart Drawer Trigger */}
-            <button
-              onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-2 bg-[#F7C600] hover:bg-[#deb200] text-black px-3.5 py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-md cursor-pointer"
-              aria-label="Open Shopping Cart"
+            {/* Direct WhatsApp Orders Button */}
+            <a
+              href="https://wa.me/923155959375"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-md cursor-pointer"
+              aria-label="Order on WhatsApp"
             >
-              <div className="relative">
-                <ShoppingCart className="w-4 h-4" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-black text-[#F7C600] text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border border-[#F7C600]">
-                    {cartCount}
-                  </span>
-                )}
-              </div>
+              <MessageSquare className="w-4 h-4" />
               <span className="hidden sm:inline font-black">
-                {cartCount > 0 ? `$${subtotal.toFixed(2)}` : 'CART'}
+                WHATSAPP ORDER
               </span>
-            </button>
+            </a>
 
           </div>
 

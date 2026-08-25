@@ -6,7 +6,6 @@ import {
   ShieldCheck,
   Heart,
   Scale,
-  ShoppingCart,
   Zap,
   ArrowLeft,
   Share2,
@@ -25,7 +24,8 @@ export const ProductDetailPage: React.FC = () => {
   const {
     activeProduct,
     setActivePage,
-    addToCart,
+    orderProductOnWhatsApp,
+    orderMultipleOnWhatsApp,
     toggleWishlist,
     isInWishlist,
     toggleCompare,
@@ -55,22 +55,16 @@ export const ProductDetailPage: React.FC = () => {
   const isCompared = compareList.includes(product.id);
   const images = product.galleryImages && product.galleryImages.length > 0 ? product.galleryImages : [product.primaryImage];
 
-  const handleAddToCart = () => {
-    addToCart(product, quantity);
+  const handleOrderOnWhatsApp = () => {
+    orderProductOnWhatsApp(product, quantity);
   };
 
-  const handleBuyNow = () => {
-    addToCart(product, quantity);
-    setActivePage('checkout');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleAddBundle = () => {
-    addToCart(product, 1);
+  const handleOrderBundle = () => {
+    const items = [{ product, quantity: 1 }];
     if (includeAddon) {
-      addToCart(bundleAddon, 1);
+      items.push({ product: bundleAddon, quantity: 1 });
     }
-    showToast('Bundle package added to cart!');
+    orderMultipleOnWhatsApp(items);
   };
 
   const handleShare = () => {
@@ -306,13 +300,13 @@ export const ProductDetailPage: React.FC = () => {
                   </button>
                 </div>
 
-                {/* Add to Cart */}
+                {/* Order on WhatsApp */}
                 <button
-                  onClick={handleAddToCart}
-                  className="flex-1 py-4 bg-[#F7C600] hover:bg-[#DEB200] text-black font-condensed font-black text-lg uppercase tracking-wider rounded-xl transition-all duration-200 shadow-xl flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                  onClick={handleOrderOnWhatsApp}
+                  className="flex-1 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-condensed font-black text-lg uppercase tracking-wider rounded-xl transition-all duration-200 shadow-xl flex items-center justify-center gap-2 cursor-pointer active:scale-95"
                 >
-                  <ShoppingCart className="w-5 h-5" />
-                  <span>ADD TO CART</span>
+                  <MessageSquare className="w-5 h-5" />
+                  <span>ORDER ON WHATSAPP</span>
                 </button>
 
                 {/* Wishlist & Compare Icons */}
@@ -339,21 +333,14 @@ export const ProductDetailPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Direct Buy Now and WhatsApp Order Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <button
-                  onClick={handleBuyNow}
-                  className="py-3 bg-neutral-800 hover:bg-neutral-700 text-white font-condensed font-bold text-base uppercase tracking-wider rounded-xl border border-neutral-700 transition-colors cursor-pointer text-center"
-                >
-                  BUY NOW WITH 1-CLICK CHECKOUT
-                </button>
-
+              {/* Inquire on WhatsApp */}
+              <div className="pt-2">
                 <button
                   onClick={() => sendWhatsAppProductInquiry(product)}
-                  className="py-3 bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/40 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 hover:text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-neutral-700 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>ORDER VIA WHATSAPP (+92 315 5959375)</span>
+                  <MessageSquare className="w-4 h-4 text-emerald-400" />
+                  <span>Ask a Question on WhatsApp (+92 315 5959375)</span>
                 </button>
               </div>
 
@@ -409,10 +396,11 @@ export const ProductDetailPage: React.FC = () => {
                 </span>
               </div>
               <button
-                onClick={handleAddBundle}
-                className="px-6 py-3 bg-[#F7C600] hover:bg-[#DEB200] text-black font-condensed font-black text-sm uppercase tracking-wider rounded-lg transition-colors cursor-pointer"
+                onClick={handleOrderBundle}
+                className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-condensed font-black text-sm uppercase tracking-wider rounded-lg transition-colors cursor-pointer flex items-center gap-2"
               >
-                Add Both to Cart
+                <MessageSquare className="w-4 h-4" />
+                <span>Order Bundle on WhatsApp</span>
               </button>
             </div>
           </div>
@@ -684,7 +672,7 @@ export const ProductDetailPage: React.FC = () => {
 
       </div>
 
-      {/* Sticky Mobile Add to Cart Bar */}
+      {/* Sticky Mobile Order on WhatsApp Bar */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 p-3 bg-[#111111]/95 backdrop-blur-md border-t border-neutral-800 flex items-center justify-between gap-3 z-30 shadow-2xl">
         <div>
           <span className="font-condensed font-black text-xl text-white">${product.price.toFixed(2)}</span>
@@ -693,16 +681,17 @@ export const ProductDetailPage: React.FC = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={() => sendWhatsAppProductInquiry(product)}
-            className="p-3 bg-emerald-600 text-white rounded-xl"
-            title="WhatsApp"
+            className="p-3 bg-neutral-800 hover:bg-neutral-700 text-emerald-400 rounded-xl border border-neutral-700"
+            title="WhatsApp Inquiry"
           >
             <MessageSquare className="w-4 h-4" />
           </button>
           <button
-            onClick={handleAddToCart}
-            className="px-6 py-3 bg-[#F7C600] text-black font-condensed font-black text-sm uppercase tracking-wider rounded-xl shadow-lg"
+            onClick={handleOrderOnWhatsApp}
+            className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-condensed font-black text-sm uppercase tracking-wider rounded-xl shadow-lg flex items-center gap-2"
           >
-            ADD TO CART
+            <MessageSquare className="w-4 h-4" />
+            <span>ORDER ON WHATSAPP</span>
           </button>
         </div>
       </div>
