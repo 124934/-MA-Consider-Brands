@@ -1,6 +1,11 @@
 import { ToolCategory } from '../types';
 import powerToolsImage from '../assets/images/regenerated_image_1787659274248.png';
 import batteriesChargersImage from '../assets/images/regenerated_image_1787659277585.png';
+import comboKitsImage from '../assets/images/regenerated_image_1787662197895.png';
+import handToolsImage from '../assets/images/regenerated_image_1787662202557.png';
+import storageImage from '../assets/images/regenerated_image_1787662206480.png';
+import outdoorImage from '../assets/images/regenerated_image_1787662210518.png';
+import accessoriesImage from '../assets/images/regenerated_image_1787662213971.png';
 
 export interface CategoryInfo {
   id: ToolCategory;
@@ -41,7 +46,7 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'Complete commercial 2-tool, 4-tool, and 6-tool contractor combos with high-capacity batteries, fast chargers, and rugged bags.',
     tagline: 'Best Value for Contractors',
     itemCount: 26,
-    image: 'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=800&q=80',
+    image: comboKitsImage,
     popularSubcategories: ['2-Tool Hammer/Impact Kits', '4-Tool Commercial Kits', 'FLEXVOLT® System Kits', 'Woodworking Combo Sets']
   },
   {
@@ -51,7 +56,7 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'ToughSeries™ tape measures, ratchets, mechanics tool sets, utility knives, pliers, and levels built with rugged steel metallurgy.',
     tagline: 'Built for Demanding Hands',
     itemCount: 88,
-    image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80',
+    image: handToolsImage,
     popularSubcategories: ['ToughSeries™ Measuring', 'Socket & Ratchet Sets', 'Wrenches & Pliers', 'Utility Knives & Blades']
   },
   {
@@ -61,7 +66,7 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'ToughSystem® 2.0 and TSTAK® modular mobile toolboxes, organizers, soft bags, and rolling mobile carts with IP65 weather seals.',
     tagline: 'Jobsite Mobility & Organization',
     itemCount: 35,
-    image: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?auto=format&fit=crop&w=800&q=80',
+    image: storageImage,
     popularSubcategories: ['ToughSystem® 2.0', 'Rolling Mobile Boxes', 'TSTAK® Organizers', 'Contractor Bags', 'Wall Racks']
   },
   {
@@ -71,7 +76,7 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'Gas-free commercial lawn care and property maintenance including 60V MAX* chainsaws, string trimmers, blowers, and pole saws.',
     tagline: 'Gas Power Without the Hassle',
     itemCount: 22,
-    image: 'https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=800&q=80',
+    image: outdoorImage,
     popularSubcategories: ['Cordless Chainsaws', 'FLEXVOLT® String Trimmers', 'Handheld & Backpack Blowers', 'Hedge Trimmers']
   },
   {
@@ -81,7 +86,7 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'Flextorq® screwdriving bits, SDS-plus masonry bits, carbide circular saw blades, recip blades, and diamond grinding discs.',
     tagline: 'Precision Flextorq & Blades',
     itemCount: 160,
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    image: accessoriesImage,
     popularSubcategories: ['Flextorq Bit Sets', 'Carbide Saw Blades', 'SDS Masonry Bits', 'Hole Saws', 'Diamond Blades']
   },
   {

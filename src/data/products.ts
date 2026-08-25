@@ -1,4 +1,21 @@
 import { Product } from '../types';
+import hammerDrillImage from '../assets/images/regenerated_image_1787662218697.png';
+import circularSawImage from '../assets/images/regenerated_image_1787664354762.png';
+import angleGrinderImage from '../assets/images/regenerated_image_1787664350071.png';
+import rotaryHammerImage from '../assets/images/regenerated_image_1787664345426.png';
+import batteryPackImage from '../assets/images/regenerated_image_1787664341062.png';
+import laserLevelImage from '../assets/images/regenerated_image_1787664329242.png';
+import stringTrimmerImage from '../assets/images/regenerated_image_1787664339964.jpg';
+import bitSetImage from '../assets/images/regenerated_image_1787675431473.png';
+import comboKitImage from '../assets/images/regenerated_image_1787675436368.png';
+import impactWrenchImage from '../assets/images/regenerated_image_1787673246220.jpg';
+import miterSawImage from '../assets/images/regenerated_image_1787673247163.webp';
+import recipSawImage from '../assets/images/regenerated_image_1787675413170.jpg';
+import chainsawImage from '../assets/images/regenerated_image_1787675416802.jpg';
+import multiToolImage from '../assets/images/regenerated_image_1787675419928.jpg';
+import rollingBoxImage from '../assets/images/regenerated_image_1787675423090.jpg';
+import chargerImage from '../assets/images/regenerated_image_1787675425702.jpg';
+import tapeMeasureImage from '../assets/images/regenerated_image_1787675428259.jpg';
 
 export const PRODUCTS: Product[] = [
   {
@@ -22,9 +39,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: true,
     shortDescription: 'High-power 3-speed brushless motor delivering up to 2,250 RPM and 38,250 BPM for masonry drilling.',
     description: 'The DCD996B 20V MAX* XR® 1/2 in. 3-Speed Hammer Drill delivers up to 820 Units Watts Out (UWO) for heavy-duty drilling and fastening applications. Features a high-efficiency brushless motor that delivers up to 57% more run time over brushed. Includes a 3-mode LED light with spotlight mode and 20-minute shutoff function.',
-    primaryImage: 'https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=800&q=80',
+    primaryImage: hammerDrillImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=800&q=80',
+      hammerDrillImage,
       'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -154,9 +171,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: false,
     shortDescription: 'High-torque rear-handle framing saw delivering true corded worm-drive cutting power with 5,800 RPM.',
     description: 'The DCS577B 60V MAX* 7-1/4 in. Worm Drive Style Cordless Circular Saw delivers the ultimate framing power. Featuring a brushless motor that achieves 5,800 RPM with an electronic brake. High-grade magnesium shoe and bevel capacity of 53 degrees with stops at 45 and 22.5.',
-    primaryImage: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+    primaryImage: circularSawImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+      circularSawImage,
       'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -206,9 +223,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: true,
     shortDescription: '13-Amp corded equivalent power with Kickback Brake™ that engages in under 2 seconds for safety.',
     description: 'The DCG414B 60V MAX* 4-1/2 in. - 6 in. Grinder delivers true corded power with the freedom of cordless. Features Kickback Brake™ which engages when a pinch, stall, or bind-up event is sensed, quickly stopping the wheel.',
-    primaryImage: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80',
+    primaryImage: angleGrinderImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80',
+      angleGrinderImage,
       'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -257,9 +274,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: false,
     shortDescription: '2.1 Joules of impact energy with SHOCKS Active Vibration Control® for concrete anchor drilling.',
     description: 'The DCH273B 20V MAX* XR® Brushless 1 in. Rotary Hammer delivers high performance with 2.1 Joules of impact energy. Features SHOCKS Active Vibration Control® system that reduces vibration felt at the handles, increasing user comfort.',
-    primaryImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+    primaryImage: rotaryHammerImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+      rotaryHammerImage,
       'https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -305,14 +322,14 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     stockQuantity: 22,
     isFeatured: true,
-    isBestSeller: true,
+    isBestSeller: false,
     isOnSale: true,
     shortDescription: 'Delivers 700 ft-lbs of max torque and 1,200 ft-lbs of breakaway torque for heavy mechanical fasteners.',
     description: 'The DCF899B 20V MAX* XR® Brushless High Torque 1/2 in. Impact Wrench with Detent Pin Anvil is powerful and versatile for fastening applications. Engineered to deliver 700 ft-lbs of max fastening torque and 1,200 ft-lbs of max breakaway torque.',
-    primaryImage: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80',
+    primaryImage: impactWrenchImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80'
+      impactWrenchImage,
+      'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
       'Up to 700 ft-lbs of max torque and 1,200 ft-lbs of max breakaway torque',
@@ -356,9 +373,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: true,
     shortDescription: 'Dual-voltage 9.0Ah pack automatically changes voltage when you change tools, providing 6X runtime.',
     description: 'The DCB609-2 FLEXVOLT® 9.0Ah battery provides up to 6X runtime compared to DCB201 1.5Ah battery pack. The battery automatically changes voltage when you change tools, powering 60V MAX* tools, 120V MAX* tools, and backwards-compatible with existing 20V MAX* tools.',
-    primaryImage: 'https://images.unsplash.com/photo-1619869281313-0570b991b151?auto=format&fit=crop&w=800&q=80',
+    primaryImage: batteryPackImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1619869281313-0570b991b151?auto=format&fit=crop&w=800&q=80',
+      batteryPackImage,
       'https://images.unsplash.com/photo-1558441719-866a4e32049e?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -401,13 +418,13 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     stockQuantity: 12,
     isFeatured: true,
-    isBestSeller: true,
+    isBestSeller: false,
     isOnSale: true,
     shortDescription: '15 Amp 3,800 RPM motor with XPS cross-cut positioning system for ultra-precise crown molding and framing cuts.',
     description: 'The DWS780 12 in. Double-Bevel Sliding Compound Miter Saw features a 15 Amp motor and integrated XPS cross-cut positioning system for adjustment-free cut line indication. Tall sliding fences support up to 7-1/2 in. nested crown molding and 6-3/4 in. base molding vertically.',
-    primaryImage: 'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
+    primaryImage: miterSawImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
+      miterSawImage,
       'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -459,9 +476,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: true,
     shortDescription: 'Delivers up to 19% more power with keyless lever-action blade clamp and 0-3,000 SPM for heavy demolition.',
     description: 'The DCS389X1 60V MAX* Reciprocating Saw Kit packs explosive demolition power. With a 1-1/8 in. stroke length and variable-speed trigger delivering up to 3,000 SPM, it cuts quickly through metal, heavy pipe, structural lumber, and drywall.',
-    primaryImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+    primaryImage: recipSawImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+      recipSawImage,
       'https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -511,9 +528,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: true,
     shortDescription: 'Gas-free 16" Oregon bar and chain with auto-oiling, tool-free chain tensioning, and chain brake.',
     description: 'The DCCS670X1 FLEXVOLT® 60V MAX* 16 in. Chainsaw features a low kickback 16 in. Oregon® bar and chain for construction and outdoor cutting applications. High-efficiency brushless motor maximizes run time and motor life.',
-    primaryImage: 'https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=800&q=80',
+    primaryImage: chainsawImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=800&q=80',
+      chainsawImage,
       'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -558,13 +575,13 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     stockQuantity: 32,
     isFeatured: true,
-    isBestSeller: true,
+    isBestSeller: false,
     isOnSale: true,
     shortDescription: '3-speed selector with Quick-Change™ accessory system for rapid blade changes without wrenches.',
     description: 'The DCS356B 20V MAX* XR® Cordless Oscillating Multi-Tool has a 3-speed selector allowing users to choose their speed setting based on application. The Quick-Change™ accessory system allows you to change blades and attachments quickly without wrenches.',
-    primaryImage: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80',
+    primaryImage: multiToolImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80',
+      multiToolImage,
       'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -609,13 +626,13 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     stockQuantity: 30,
     isFeatured: true,
-    isBestSeller: true,
+    isBestSeller: false,
     isOnSale: true,
     shortDescription: 'IP65 dust/water rated rolling box with patented auto-connect side latches and 8-inch rugged jobsite wheels.',
     description: 'The ToughSystem® 2.0 Rolling Toolbox features patented auto-connect side latches, allowing for 1-hand operation. Heavy-duty 2-piece metal front latches for added durability. IP65 rated for dust and water resistance and a 250 lbs load capacity.',
-    primaryImage: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?auto=format&fit=crop&w=800&q=80',
+    primaryImage: rollingBoxImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?auto=format&fit=crop&w=800&q=80',
+      rollingBoxImage,
       'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -662,9 +679,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: true,
     shortDescription: 'High-visibility green beam cross line laser with 165 ft. range and magnetic pivoting base.',
     description: 'The DW088CG Green Cross Line Laser projects bright intersecting horizontal and vertical lines. Green laser technology provides up to 4X brighter visibility compared to standard red lasers. Locking pendulum and overmolded housing with IP54 debris resistance.',
-    primaryImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
+    primaryImage: laserLevelImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
+      laserLevelImage,
       'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -712,9 +729,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: true,
     shortDescription: 'Simultaneously charges four 4.0Ah batteries in 40 minutes, or four 6.0Ah batteries in 60 minutes.',
     description: 'The DCB104 4-Port Fast Charger is a four-port rapid charging station that charges four 20V MAX* or FLEXVOLT® batteries simultaneously at 8 Amps per port. Includes ToughSystem® mount brackets and cord wrap.',
-    primaryImage: 'https://images.unsplash.com/photo-1558441719-866a4e32049e?auto=format&fit=crop&w=800&q=80',
+    primaryImage: chargerImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1558441719-866a4e32049e?auto=format&fit=crop&w=800&q=80',
+      chargerImage,
       'https://images.unsplash.com/photo-1619869281313-0570b991b151?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -753,13 +770,13 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     stockQuantity: 95,
     isFeatured: false,
-    isBestSeller: true,
+    isBestSeller: false,
     isOnSale: false,
     shortDescription: 'Withstands a 100 ft. drop onto packed soil with 17 ft. max reach and BladeArmor coating.',
     description: 'The ToughSeries™ 25 ft. Tape Measure survives 100 ft. drop tests onto packed soil. Engineered for heavy jobsite endurance with 17 ft. straighter reach and ultra-durable blade coating.',
-    primaryImage: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80',
+    primaryImage: tapeMeasureImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80',
+      tapeMeasureImage,
       'https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -798,13 +815,13 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     stockQuantity: 120,
     isFeatured: true,
-    isBestSeller: true,
+    isBestSeller: false,
     isOnSale: true,
     shortDescription: 'CNC machined bit tips for precise fit into fastener recesses, reducing cam-out with FlexTorq zone.',
     description: 'The DWA2T40IR 40-Piece Impact Ready FlexTorq set features a 15-degree reflex core that flexes under high torque loads to absorb impact and prevent bit breakage. Housed in the patented connectable ToughCase+ container system.',
-    primaryImage: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    primaryImage: bitSetImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+      bitSetImage,
       'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -847,13 +864,13 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     stockQuantity: 28,
     isFeatured: true,
-    isBestSeller: true,
+    isBestSeller: false,
     isOnSale: true,
     shortDescription: 'Complete professional kit featuring DCD996 3-speed hammer drill, DCF887 3-speed impact driver, and two 5.0Ah batteries.',
     description: 'The DCK299P2 20V MAX* XR® Brushless Hammerdrill & Impact Driver Combo Kit pairs the DCD996 3-Speed Hammer Drill with the DCF887 3-Speed Impact Driver. Includes two 5.0Ah high-capacity XR battery packs, fast charger, and contractor storage bag.',
-    primaryImage: 'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=800&q=80',
+    primaryImage: comboKitImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=800&q=80',
+      comboKitImage,
       'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
@@ -905,9 +922,9 @@ export const PRODUCTS: Product[] = [
     isOnSale: true,
     shortDescription: 'High-efficiency brushless motor with 15 in. cutting swath and gear drive design to power through heavy overgrowth.',
     description: 'The DCM5713B 60V MAX* String Trimmer features a high-efficiency brushless motor that delivers gas-like power without fumes, oil mix, or pull cords. Features variable speed trigger with Hi/Lo speed control.',
-    primaryImage: 'https://images.unsplash.com/photo-1592417817098-8f3d69104a47?auto=format&fit=crop&w=800&q=80',
+    primaryImage: stringTrimmerImage,
     galleryImages: [
-      'https://images.unsplash.com/photo-1592417817098-8f3d69104a47?auto=format&fit=crop&w=800&q=80',
+      stringTrimmerImage,
       'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80'
     ],
     features: [
